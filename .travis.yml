@@ -10,11 +10,5 @@ python:
 install:
   - pip install -r tests/requirements.txt
 
-jobs:
-  include:
-    - stage: lint
-    script: tox -e flake8
-    - stage: unit_tests
-    script: tox -e py27
-    script: tox -e p34
-    script: tox -e py36
+script:
+  - tox
