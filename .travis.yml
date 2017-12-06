@@ -1,0 +1,20 @@
+language: python
+
+env:
+  - ANDROID_HOME: "/dummy/path"
+
+python:
+  - "2.7"
+  - "3.4"
+  - "3.6"
+install:
+  - pip install -r tests/requirements.txt
+
+jobs:
+  include:
+    - stage: lint
+    script: tox -e flake8
+    - stage: unit_tests
+    script: tox -e py27
+    script: tox -e p34
+    script: tox -e py36
